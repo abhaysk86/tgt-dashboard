@@ -21,14 +21,11 @@ Or just run:  ./update.sh
 import openpyxl
 import sys
 from datetime import datetime, date
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 # ── CONFIG ───────────────────────────────────────────────────────────────────
-MASTER_FILE = Path(
-    "/Users/abhaykapoor/Library/Mobile Documents/"
-    "com~apple~CloudDocs/Claude_TGT/TGT Master File_26-27.xlsx"
-)
+MASTER_FILE = Path(__file__).parent.parent / "TGT Master File_26-27.xlsx"
 OUTPUT_FILE = Path(__file__).parent / "index.html"
 TODAY = date.today()
 WEEK_NUM = TODAY.isocalendar()[1]
@@ -141,37 +138,51 @@ def get_financials(wb):
     rows = list(ws.iter_rows(values_only=True))
     # Row index 3 = header: "Row Labels" | "May" | "June" | "Grand Total"
     header = rows[3]
-    months = [
+    month_pairs = [
         (i, v) for i, v in enumerate(header)
         if v and v not in ("Row Labels", "Grand Total")
     ]
-    if not months:
+    if not month_pairs:
         return {}, "Unknown"
-    col, label = months[-1]   # most recent month column
+
+    month_cols  = [i for i, _ in month_pairs]
+    month_names = [str(v) for _, v in month_pairs]
 
     cr, dr = {}, {}
-    section = None
+    total_cr = {m: 0.0 for m in month_names}
+    total_dr = {m: 0.0 for m in month_names}
+    section  = None
+
     for r in rows[4:]:
-        lbl, val = r[0], r[col]
+        lbl = r[0]
         if lbl == "CR":
             section = "cr"
+            for col, mn in zip(month_cols, month_names):
+                total_cr[mn] = float(r[col] or 0)
         elif lbl == "DR":
             section = "dr"
+            for col, mn in zip(month_cols, month_names):
+                total_dr[mn] = float(r[col] or 0)
         elif lbl == "Grand Total":
             break
         elif lbl and section == "cr":
-            cr[str(lbl)] = float(val or 0)
+            cr[str(lbl)] = {mn: float(r[col] or 0)
+                            for col, mn in zip(month_cols, month_names)}
         elif lbl and section == "dr":
-            dr[str(lbl)] = float(val or 0)
+            dr[str(lbl)] = {mn: float(r[col] or 0)
+                            for col, mn in zip(month_cols, month_names)}
 
-    total_cr = sum(cr.values())
-    total_dr = sum(dr.values())
+    deficit = {mn: total_cr[mn] - total_dr[mn] for mn in month_names}
+    latest  = month_names[-1] if month_names else "Unknown"
+
     return {
-        "cr": cr, "dr": dr,
+        "months":   month_names,
+        "cr":       cr,
+        "dr":       dr,
         "total_cr": total_cr,
         "total_dr": total_dr,
-        "deficit":  total_cr - total_dr,
-    }, str(label)
+        "deficit":  deficit,
+    }, latest
 
 
 def get_payments(wb):
@@ -252,6 +263,68 @@ def get_collection(wb):
             amounts[mk] = amounts.get(mk, 0) + amt
     sorted_months = sorted(counts.keys(), reverse=True)
     return [(m, counts[m], amounts.get(m, 0)) for m in sorted_months[:2]]
+
+
+def get_bank_balance(wb):
+    """Extract opening and closing bank balances per month.
+    Opening for month[0] is back-calculated from first transaction.
+    Opening for month[N] = closing of month[N-1].
+    Returns (closing_bal dict, opening_bal dict, current_balance float)."""
+    ws = wb["Consolidated Bank Statenent Raw"]
+    rows = list(ws.iter_rows(values_only=True))
+    month_order, first_txn, last_bal = [], {}, {}
+    for r in rows[1:]:
+        if not r[0]:
+            continue
+        month = str(r[2] or "")
+        bal   = r[10]   # Available Balance(INR)
+        cr_dr = str(r[8] or "")
+        amt   = float(r[9] or 0)
+        if month not in month_order:
+            month_order.append(month)
+            if bal is not None:
+                first_txn[month] = (float(bal), cr_dr, amt)
+        if bal is not None:
+            last_bal[month] = float(bal)
+    # Compute opening balances
+    opening_bal = {}
+    for i, m in enumerate(month_order):
+        if i == 0:
+            bal_after, cr_dr, amt = first_txn[m]
+            opening_bal[m] = bal_after - amt if cr_dr == "CR" else bal_after + amt
+        else:
+            opening_bal[m] = last_bal[month_order[i - 1]]
+    current = last_bal[month_order[-1]] if month_order else 0.0
+    return last_bal, opening_bal, current
+
+
+def get_dues_vs_collections(wb):
+    """Aggregate Maintenance Dues vs Collections sheet by Invoice Month."""
+    ws = wb["Maintenance Dues vs Collections"]
+    rows = list(ws.iter_rows(values_only=True))
+    data = defaultdict(lambda: {"invoiced": 0.0, "collected": 0.0, "balance": 0.0})
+    month_order = []
+    for r in rows[1:]:
+        if not r[0]:
+            continue
+        month = str(r[2] or "")
+        if month not in month_order:
+            month_order.append(month)
+        data[month]["invoiced"]  += float(r[11] or 0)   # Total Invoiced
+        data[month]["collected"] += float(r[15] or 0)   # Total Amount Collected
+        data[month]["balance"]   += float(r[16] or 0)   # Dues Balance
+    result = []
+    for m in month_order:
+        d = data[m]
+        pct = d["collected"] / d["invoiced"] * 100 if d["invoiced"] else 0
+        result.append({
+            "month":     m,
+            "invoiced":  d["invoiced"],
+            "collected": d["collected"],
+            "balance":   d["balance"],
+            "pct":       pct,
+        })
+    return result
 
 
 def get_actions(wb):
@@ -343,6 +416,131 @@ def _ordered_rows(data, order):
     for k, v in data.items():
         if k not in shown:
             html += f"<tr><td>{k}</td><td class='r'>{ind(v)}</td></tr>\n"
+    return html
+
+
+def _financial_pivot_html(fin, bank_bal_by_month=None, opening_bal_by_month=None):
+    """Multi-month Income/Expense pivot table (all months as columns)."""
+    months   = fin.get("months", [])
+    cr       = fin.get("cr", {})
+    dr       = fin.get("dr", {})
+    total_cr = fin.get("total_cr", {})
+    total_dr = fin.get("total_dr", {})
+    deficit  = fin.get("deficit",  {})
+    ncols    = len(months) + 1   # month cols + YTD col
+
+    def val_cells(row_dict):
+        return "".join(f"<td class='r'>{ind(row_dict.get(m, 0))}</td>" for m in months)
+
+    def ytd(row_dict):
+        return ind(sum(row_dict.get(m, 0) for m in months))
+
+    def def_style(v):
+        c = "var(--red)" if v < 0 else "var(--green)"
+        return f" style='color:{c}'"
+
+    def def_fmt(v):
+        return f"({ind(abs(v))})" if v < 0 else ind(v)
+
+    th = "".join(f"<th class='r'>{m}</th>" for m in months)
+    html = (
+        f"<div class='tbl-wrap'><table>"
+        f"<thead><tr><th>Category</th>{th}<th class='r'>YTD Total</th></tr></thead>"
+        f"<tbody>"
+    )
+
+    # CR section
+    html += f"<tr class='sec-marker'><td colspan='{ncols + 1}'>&uarr;&nbsp; INCOME (CR)</td></tr>\n"
+    shown = set()
+    for key in CR_ORDER:
+        for k, v in cr.items():
+            if key.lower() in k.lower() and k not in shown:
+                html += f"<tr><td>{k}</td>{val_cells(v)}<td class='r'>{ytd(v)}</td></tr>\n"
+                shown.add(k)
+    for k, v in cr.items():
+        if k not in shown:
+            html += f"<tr><td>{k}</td>{val_cells(v)}<td class='r'>{ytd(v)}</td></tr>\n"
+    tcr_ytd = sum(total_cr.get(m, 0) for m in months)
+    html += (
+        f"<tr class='total-row'><td>Total CR</td>{val_cells(total_cr)}"
+        f"<td class='r'>{ind(tcr_ytd)}</td></tr>\n"
+    )
+
+    # DR section
+    html += f"<tr class='sec-marker'><td colspan='{ncols + 1}'>&darr;&nbsp; EXPENSES (DR)</td></tr>\n"
+    shown = set()
+    for key in DR_ORDER:
+        for k, v in dr.items():
+            if key.lower() in k.lower() and k not in shown:
+                html += f"<tr><td>{k}</td>{val_cells(v)}<td class='r'>{ytd(v)}</td></tr>\n"
+                shown.add(k)
+    for k, v in dr.items():
+        if k not in shown:
+            html += f"<tr><td>{k}</td>{val_cells(v)}<td class='r'>{ytd(v)}</td></tr>\n"
+    tdr_ytd = sum(total_dr.get(m, 0) for m in months)
+    html += (
+        f"<tr class='total-row'><td>Total DR</td>{val_cells(total_dr)}"
+        f"<td class='r'>{ind(tdr_ytd)}</td></tr>\n"
+    )
+
+    # Surplus / (Deficit)
+    dfct_cells = "".join(
+        f"<td class='r'{def_style(deficit.get(m, 0))}>{def_fmt(deficit.get(m, 0))}</td>"
+        for m in months
+    )
+    dfct_ytd = sum(deficit.get(m, 0) for m in months)
+    html += (
+        f"<tr class='total-row'><td>Surplus / (Deficit)</td>{dfct_cells}"
+        f"<td class='r'{def_style(dfct_ytd)}>{def_fmt(dfct_ytd)}</td></tr>\n"
+    )
+
+    # Bank balance reconciliation block
+    if bank_bal_by_month or opening_bal_by_month:
+        html += (
+            f"<tr class='sec-marker'><td colspan='{ncols + 1}'>"
+            f"&#127974;&nbsp; BANK BALANCE RECONCILIATION"
+            f"&nbsp;&nbsp;<span style='font-weight:400;font-size:10px;text-transform:none'>"
+            f"Opening + Surplus / (Deficit) = Closing</span></td></tr>\n"
+        )
+        if opening_bal_by_month:
+            open_cells = "".join(
+                f"<td class='r'>&#8377;{ind(opening_bal_by_month.get(m, 0))}</td>"
+                for m in months
+            )
+            html += (
+                f"<tr class='bal-row'><td>Opening Bank Balance</td>"
+                f"{open_cells}<td class='r'>&#8212;</td></tr>\n"
+            )
+        if bank_bal_by_month:
+            close_cells = "".join(
+                f"<td class='r'>&#8377;{ind(bank_bal_by_month.get(m, 0))}</td>"
+                for m in months
+            )
+            html += (
+                f"<tr class='bal-row'><td>Closing Bank Balance</td>"
+                f"{close_cells}<td class='r'>&#8212;</td></tr>\n"
+            )
+
+    html += "</tbody></table></div>"
+    return html
+
+
+def dues_coll_rows_html(dues_coll):
+    """HTML rows for Maintenance Billing vs Collection summary."""
+    html = ""
+    for d in dues_coll:
+        pct     = d["pct"]
+        pct_cls = "green" if pct >= 99 else ("amber" if pct >= 95 else "red")
+        bal_sty = " style='color:var(--amber)'" if d["balance"] > 0 else ""
+        html += (
+            f"<tr>"
+            f"<td><strong>{d['month']}</strong></td>"
+            f"<td class='r'>&#8377;{ind(d['invoiced'])}</td>"
+            f"<td class='r'>&#8377;{ind(d['collected'])}</td>"
+            f"<td class='r'{bal_sty}>{ind(d['balance']) if d['balance'] > 0 else '&#8212;'}</td>"
+            f"<td class='r'><span class='badge-pill pill-{pct_cls}'>{pct:.1f}%</span></td>"
+            f"</tr>\n"
+        )
     return html
 
 
@@ -599,6 +797,11 @@ summary:hover{background:#e3eaf3}
 .divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 tr.total-row td{font-weight:700;background:var(--navy)!important;color:#fff;font-size:12.5px}
 tr.alert-row td{background:#fff8e1!important;font-weight:600;color:#7f3700}
+tr.sec-marker td{background:#e8ecf4!important;color:var(--navy-mid);font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;padding:5px 10px}
+tr.bal-row td{font-weight:700;background:#1b5e20!important;color:#fff;font-size:12.5px}
+.pill-green{background:#e8f5e9;color:#2e7d32}
+.pill-amber{background:#fff3e0;color:#e65100}
+.pill-red{background:#ffebee;color:#c62828}
 .sub-label{font-size:11px;font-weight:700;color:var(--navy);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px;padding-bottom:4px;border-bottom:2px solid var(--navy);display:inline-block}
 .age-pill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700}
 .age-critical{background:#b71c1c;color:#fff}
@@ -614,6 +817,7 @@ tr.alert-row td{background:#fff8e1!important;font-weight:600;color:#7f3700}
 def build_html(tickets, fin, fin_label,
                vendors, vtotals,
                residential, commercial, collection,
+               dues_coll, bank_bal_by_month, opening_bal_by_month, current_balance,
                actions, commitments, commit_total):
 
     # Derived helpdesk stats
@@ -627,12 +831,15 @@ def build_html(tickets, fin, fin_label,
     closed_n = sum(1 for a in actions if "Closed" in a["status"] or "✅" in a["status"])
     open_n   = sum(1 for a in actions if "Open"   in a["status"] or "🟡" in a["status"])
 
-    # Financial
-    total_cr = fin.get("total_cr", 0)
-    total_dr = fin.get("total_dr", 0)
-    deficit  = fin.get("deficit",  0)
-    deficit_s  = f"&#8377;({ind(abs(deficit))})" if deficit < 0 else f"&#8377;{ind(deficit)}"
-    deficit_cl = "red" if deficit < 0 else "green"
+    # Financial — YTD totals for KPI cards
+    _tcr     = fin.get("total_cr", {})
+    _tdr     = fin.get("total_dr", {})
+    _def     = fin.get("deficit",  {})
+    ytd_cr   = sum(_tcr.values())
+    ytd_dr   = sum(_tdr.values())
+    ytd_def  = ytd_cr - ytd_dr
+    deficit_s  = f"&#8377;({ind(abs(ytd_def))})" if ytd_def < 0 else f"&#8377;{ind(ytd_def)}"
+    deficit_cl = "red" if ytd_def < 0 else "green"
 
     # Outstanding vendors
     outstanding = [v for v in vendors if float(v.get("pending") or 0) > 0]
@@ -730,39 +937,20 @@ def build_html(tickets, fin, fin_label,
 
 <!-- ═══════════════════ SECTION 2: FINANCIALS ═══════════════════ -->
 <div class="section">
-  <div class="sec-hdr">&#128176; Financial Summary &#8212; {fin_label} 2026
-    <span class="sec-tag">Bank Statement &nbsp;·&nbsp; Current Month Only</span></div>
+  <div class="sec-hdr">&#128176; Financial Summary &#8212; {FY_LABEL}
+    <span class="sec-tag">Income &amp; Expense &nbsp;·&nbsp; All Months YTD</span></div>
   <div class="sec-body">
-    <div class="kpi-row kpi-row-3">
-      <div class="kpi green"><div class="kpi-val">&#8377;{ind(total_cr)}</div>
-        <div class="kpi-lbl">Total Income (CR)</div></div>
-      <div class="kpi red"><div class="kpi-val">&#8377;{ind(total_dr)}</div>
-        <div class="kpi-lbl">Total Expenses (DR)</div></div>
+    <div class="kpi-row kpi-row-4">
+      <div class="kpi green"><div class="kpi-val">&#8377;{ind(ytd_cr)}</div>
+        <div class="kpi-lbl">YTD Total Income (CR)</div></div>
+      <div class="kpi red"><div class="kpi-val">&#8377;{ind(ytd_dr)}</div>
+        <div class="kpi-lbl">YTD Total Expenses (DR)</div></div>
       <div class="kpi {deficit_cl}"><div class="kpi-val">{deficit_s}</div>
-        <div class="kpi-lbl">Month Surplus / (Deficit)</div></div>
+        <div class="kpi-lbl">YTD Surplus / (Deficit)</div></div>
+      <div class="kpi green"><div class="kpi-val">&#8377;{ind(current_balance)}</div>
+        <div class="kpi-lbl">Account Balance (As On {now_label})</div></div>
     </div>
-    <div class="two-col">
-      <div>
-        <div class="sub-label">Income (CR)</div>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>Category</th><th class="r">&#8377;</th></tr></thead>
-          <tbody>
-            {_ordered_rows(fin.get('cr', {}), CR_ORDER)}
-            <tr class="total-row"><td>Total CR</td><td class="r">{ind(total_cr)}</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-      <div>
-        <div class="sub-label">Expenses (DR)</div>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>Category</th><th class="r">&#8377;</th></tr></thead>
-          <tbody>
-            {_ordered_rows(fin.get('dr', {}), DR_ORDER)}
-            <tr class="total-row"><td>Total DR</td><td class="r">{ind(total_dr)}</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-    </div>
+    {_financial_pivot_html(fin, bank_bal_by_month, opening_bal_by_month)}
   </div>
 </div>
 
@@ -820,6 +1008,18 @@ def build_html(tickets, fin, fin_label,
       <div class="kpi amber"><div class="kpi-val">&#8377;{ind(com_total)}</div>
         <div class="kpi-lbl">Total Commercial Dues</div></div>
     </div>
+    <div class="sub-label">Maintenance Billing vs Collection</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th>Month</th>
+        <th class="r">Total Billed (&#8377;)</th>
+        <th class="r">Total Collected (&#8377;)</th>
+        <th class="r">Balance (&#8377;)</th>
+        <th class="r">Collection Rate</th>
+      </tr></thead>
+      <tbody>{dues_coll_rows_html(dues_coll)}</tbody>
+    </table></div>
+    <hr class="divider">
     <div class="sub-label">Residential Dues ({len(residential)} Units)</div>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Unit</th><th>Owner</th><th>Tenant</th>
@@ -916,6 +1116,8 @@ if __name__ == "__main__":
     vendors, vtotals    = get_payments(wb)
     residential, commercial = get_dues(wb)
     coll                = get_collection(wb)
+    dues_coll           = get_dues_vs_collections(wb)
+    bank_bal_by_month, opening_bal_by_month, current_balance = get_bank_balance(wb)
     actions             = get_actions(wb)
     commitments, ctotal = get_commitments(wb)
 
@@ -925,6 +1127,8 @@ if __name__ == "__main__":
     print(f"  Res dues      : {len(residential)} units")
     print(f"  Com dues      : {len(commercial)} entities")
     print(f"  Collection    : {len(coll)} months")
+    print(f"  Dues vs Coll  : {len(dues_coll)} months")
+    print(f"  Bank balance  : ₹{current_balance:,.2f} (as on date)")
     print(f"  Actions       : {len(actions)}")
     print(f"  Commitments   : {len(commitments)} pending")
 
@@ -932,6 +1136,7 @@ if __name__ == "__main__":
         tickets, fin, fin_label,
         vendors, vtotals,
         residential, commercial, coll,
+        dues_coll, bank_bal_by_month, opening_bal_by_month, current_balance,
         actions, commitments, ctotal,
     )
 

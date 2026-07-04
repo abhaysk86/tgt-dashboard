@@ -75,6 +75,11 @@ summary:hover{background:#e3eaf3}
 .divider{border:none;border-top:1px solid var(--border);margin:16px 0}
 tr.total-row td{font-weight:700;background:var(--navy)!important;color:#fff;font-size:12.5px}
 tr.alert-row td{background:#fff8e1!important;font-weight:600;color:#7f3700}
+tr.sec-marker td{background:#e8ecf4!important;color:var(--navy-mid);font-weight:700;font-size:11px;letter-spacing:.5px;text-transform:uppercase;padding:5px 10px}
+tr.bal-row td{font-weight:700;background:#1b5e20!important;color:#fff;font-size:12.5px}
+.pill-green{background:#e8f5e9;color:#2e7d32}
+.pill-amber{background:#fff3e0;color:#e65100}
+.pill-red{background:#ffebee;color:#c62828}
 .sub-label{font-size:11px;font-weight:700;color:var(--navy);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px;padding-bottom:4px;border-bottom:2px solid var(--navy);display:inline-block}
 .age-pill{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:700}
 .age-critical{background:#b71c1c;color:#fff}
@@ -94,7 +99,7 @@ tr.alert-row td{background:#fff8e1!important;font-weight:600;color:#7f3700}
   </div>
   <div class="hdr-meta">
     Week 27 &nbsp;·&nbsp; FY 2026-27<br>
-    Data as on 29 Jun 2026<br>
+    Data as on 4 Jul 2026<br>
     Prepared: Abhay Kapoor, Secretary
   </div>
 </div>
@@ -107,142 +112,136 @@ tr.alert-row td{background:#fff8e1!important;font-weight:600;color:#7f3700}
     <span class="sec-tag">Live Status &nbsp;·&nbsp; All Months</span></div>
   <div class="sec-body">
     <div class="kpi-row kpi-row-4">
-      <div class="kpi amber"><div class="kpi-val">55</div>
+      <div class="kpi amber"><div class="kpi-val">56</div>
         <div class="kpi-lbl">Total Open (In Progress + Reopened + On Hold)</div></div>
-      <div class="kpi red"><div class="kpi-val">47</div>
+      <div class="kpi red"><div class="kpi-val">48</div>
         <div class="kpi-lbl">Ageing 9+ Days</div></div>
-      <div class="kpi red"><div class="kpi-val">49</div>
+      <div class="kpi red"><div class="kpi-val">43</div>
         <div class="kpi-lbl">Inactive 3+ Days (excl. On Hold)</div></div>
       <div class="kpi"><div class="kpi-val">5</div>
         <div class="kpi-lbl">On Hold</div></div>
     </div>
     <div class="alert amber">
       <strong>&#9888; Seepage Backlog &#8212; Monsoon Risk:</strong>
-      26 of 55 open tickets are seepage issues,
+      23 of 56 open tickets are seepage issues,
       many inherited from previous committee. Monsoon season increases volume.
       Recommend a structured seepage closure drive &#8212; triage by root cause before peak.
     </div>
     <div class="cat-bars">
-<div class="cat-row"><div class="cat-name">Seepage</div><div class="bar-wrap"><div class="bar-fill" style="width:47.3%;background:#c62828;"><span class="bar-label">47.3%</span></div></div><div class="cat-count">26</div></div>
-<div class="cat-row"><div class="cat-name">Plumbing</div><div class="bar-wrap"><div class="bar-fill" style="width:40.0%;background:#1565c0;"><span class="bar-label">40.0%</span></div></div><div class="cat-count">22</div></div>
-<div class="cat-row"><div class="cat-name">Other</div><div class="bar-wrap"><div class="bar-fill" style="width:7.3%;background:#455a64;"><span class="bar-label">7.3%</span></div></div><div class="cat-count">4</div></div>
+<div class="cat-row"><div class="cat-name">Plumbing</div><div class="bar-wrap"><div class="bar-fill" style="width:46.4%;background:#1565c0;"><span class="bar-label">46.4%</span></div></div><div class="cat-count">26</div></div>
+<div class="cat-row"><div class="cat-name">Seepage</div><div class="bar-wrap"><div class="bar-fill" style="width:41.1%;background:#c62828;"><span class="bar-label">41.1%</span></div></div><div class="cat-count">23</div></div>
+<div class="cat-row"><div class="cat-name">Other</div><div class="bar-wrap"><div class="bar-fill" style="width:7.1%;background:#455a64;"><span class="bar-label">7.1%</span></div></div><div class="cat-count">4</div></div>
 <div class="cat-row"><div class="cat-name">Electrical</div><div class="bar-wrap"><div class="bar-fill" style="width:3.6%;background:#f57f17;"><span class="bar-label">3.6%</span></div></div><div class="cat-count">2</div></div>
-<div class="cat-row"><div class="cat-name">Ground Floor Common area</div><div class="bar-wrap"><div class="bar-fill" style="width:1.8%;background:#546e7a;"><span class="bar-label">1.8%</span></div></div><div class="cat-count">1</div></div>
+<div class="cat-row"><div class="cat-name">UPVC</div><div class="bar-wrap"><div class="bar-fill" style="width:1.8%;background:#546e7a;"><span class="bar-label">1.8%</span></div></div><div class="cat-count">1</div></div>
 </div>
 
     <details>
-      <summary>&#128203; Ageing Tickets &#8212; Open 9+ Days (47 of 55)</summary>
+      <summary>&#128203; Ageing Tickets &#8212; Open 9+ Days (48 of 56)</summary>
       <div class="drill-body"><div class="tbl-wrap tbl-scroll"><table>
         <thead><tr><th>Ticket #</th><th>Flat</th><th>Category</th><th>Subject</th>
           <th>Status</th><th class="r">Age</th><th>Created</th></tr></thead>
-        <tbody><tr><td>3324</td><td>A-1807</td><td>Seepage</td><td>Please see water seapage in pipeline next to Basement 115 just ne</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>1428d</span></td><td>01-Aug-22</td></tr>
-<tr><td>6508</td><td>B-1503</td><td>Plumbing</td><td>The black cement dirt is not going even after a month. Please add</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>802d</span></td><td>18-Apr-24</td></tr>
-<tr><td>6636</td><td>B-1903</td><td>Seepage</td><td>Seepage happening in MBR WALL and it is spreading.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>776d</span></td><td>14-May-24</td></tr>
-<tr><td>6675</td><td>A-408</td><td>Other</td><td>Private balcony lawn replacement. Earlier ticket closed with reso</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>769d</span></td><td>21-May-24</td></tr>
-<tr><td>6719</td><td>A-403</td><td>Electrical</td><td>Pavan took the power adapter for door bell and is yet to get back</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>761d</span></td><td>29-May-24</td></tr>
-<tr><td>7253</td><td>B-1703</td><td>Plumbing</td><td>Water leakage from upper apartment master bathroom</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>681d</span></td><td>17-Aug-24</td></tr>
-<tr><td>7520</td><td>B-1806</td><td>Other</td><td>water clogging at car parking. please fix it</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>622d</span></td><td>15-Oct-24</td></tr>
-<tr><td>7671</td><td>B-1703</td><td>Seepage</td><td>Seepage issue in my flat B-1703. Request you to please fix this.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>598d</span></td><td>08-Nov-24</td></tr>
-<tr><td>7809</td><td>B-1608</td><td>Plumbing</td><td>Faucet and shower head leakage</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>573d</span></td><td>03-Dec-24</td></tr>
-<tr><td>8224</td><td>B-1705</td><td>Plumbing</td><td>The MBR bathroom ceiling is leaking and water is dripping. Damagi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>482d</span></td><td>04-Mar-25</td></tr>
-<tr><td>8636</td><td>B-1004</td><td>Seepage</td><td>Opening request id 8442. Refer to the comments. Don't mark it as </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>407d</span></td><td>18-May-25</td></tr>
-<tr><td>8739</td><td>B-1004</td><td>Plumbing</td><td>Seepage issue in utility area </td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>387d</span></td><td>07-Jun-25</td></tr>
-<tr><td>8856</td><td>B-1004</td><td>Plumbing</td><td>Kitchen sink pipe issue. All the soap foams come out whenever the</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>370d</span></td><td>24-Jun-25</td></tr>
-<tr><td>8860</td><td>A-1503</td><td>Plumbing</td><td>Water leaking in bathroom and low water pressure in tap.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>370d</span></td><td>24-Jun-25</td></tr>
-<tr><td>8898</td><td>B-1009</td><td>Plumbing</td><td>Leakage extending in kitchen from upper apartment</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-critical'>365d</span></td><td>29-Jun-25</td></tr>
-<tr><td>8975</td><td>A-509</td><td>Seepage</td><td>Hi Thimesh, The seepage issue from the master bedroom toilet has </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>350d</span></td><td>14-Jul-25</td></tr>
-<tr><td>9001</td><td>A-1903</td><td>Seepage</td><td>There is a mosture patch on the ceiling of the master bed room. </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>344d</span></td><td>20-Jul-25</td></tr>
-<tr><td>9107</td><td>B-601</td><td>Plumbing</td><td>Hi the Drain above my flat is leaking . This needs to be addresse</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>322d</span></td><td>11-Aug-25</td></tr>
-<tr><td>9120</td><td>B-1403</td><td>Seepage</td><td>Seepage has started again, should be an issue with B1503, request</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>319d</span></td><td>14-Aug-25</td></tr>
-<tr><td>9128</td><td>B-1705</td><td>Plumbing</td><td>Seepage in ceiling of 2nd bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>318d</span></td><td>15-Aug-25</td></tr>
-<tr><td>9175</td><td>B-804</td><td>Seepage</td><td>Seepage in bedroom ceiling </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>311d</span></td><td>22-Aug-25</td></tr>
-<tr><td>9206</td><td>A-1906</td><td>Seepage</td><td>Hi Team, On 23rd we have flagged seepage issues to Thimmesh, vide</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>306d</span></td><td>27-Aug-25</td></tr>
-<tr><td>9239</td><td>A-1903</td><td>Seepage</td><td>There some water droplets on the ceiling of the common bed room o</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>299d</span></td><td>03-Sep-25</td></tr>
-<tr><td>9240</td><td>A-901</td><td>Seepage</td><td>Seepage started developing from the water dripping from outside t</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>298d</span></td><td>04-Sep-25</td></tr>
-<tr><td>9303</td><td>A-509</td><td>Plumbing</td><td>Leakage from flush tank in master bed room toilet</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>284d</span></td><td>18-Sep-25</td></tr>
-<tr><td>9332</td><td>A-103</td><td>Seepage</td><td>In common bathroom seepage issue found from the top(pipe connecti</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>278d</span></td><td>24-Sep-25</td></tr>
-<tr><td>9390</td><td>A-1106</td><td>Seepage</td><td>There is seepage from last 2 months in my balcony this was inform</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>266d</span></td><td>06-Oct-25</td></tr>
-<tr><td>9465</td><td>B-1908</td><td>Seepage</td><td>Water drops falling directly on my car parked at B072(B1908). Thi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>250d</span></td><td>22-Oct-25</td></tr>
-<tr><td>9541</td><td>A-1901</td><td>Seepage</td><td>There are some moisture spots appearing in the ceiling. They appe</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>233d</span></td><td>08-Nov-25</td></tr>
-<tr><td>9660</td><td>B-504</td><td>Seepage</td><td>The seepage is seen in guest bedroom. It is seen since a few mont</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>210d</span></td><td>01-Dec-25</td></tr>
-<tr><td>9675</td><td>A-809</td><td>Plumbing</td><td>Seepage in Bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>207d</span></td><td>04-Dec-25</td></tr>
-<tr><td>10241</td><td>A-1211</td><td>Plumbing</td><td>Bathroom drainage jam. Recurring issue. Please fix the root cause</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>83d</span></td><td>07-Apr-26</td></tr>
+        <tbody><tr><td>3324</td><td>A-1807</td><td>Seepage</td><td>Please see water seapage in pipeline next to Basement 115 just ne</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>1433d</span></td><td>01-Aug-22</td></tr>
+<tr><td>6508</td><td>B-1503</td><td>Plumbing</td><td>The black cement dirt is not going even after a month. Please add</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>807d</span></td><td>18-Apr-24</td></tr>
+<tr><td>6636</td><td>B-1903</td><td>Seepage</td><td>Seepage happening in MBR WALL and it is spreading.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>781d</span></td><td>14-May-24</td></tr>
+<tr><td>6675</td><td>A-408</td><td>Other</td><td>Private balcony lawn replacement. Earlier ticket closed with reso</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>774d</span></td><td>21-May-24</td></tr>
+<tr><td>6719</td><td>A-403</td><td>Electrical</td><td>Pavan took the power adapter for door bell and is yet to get back</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>766d</span></td><td>29-May-24</td></tr>
+<tr><td>7253</td><td>B-1703</td><td>Plumbing</td><td>Water leakage from upper apartment master bathroom</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>686d</span></td><td>17-Aug-24</td></tr>
+<tr><td>7520</td><td>B-1806</td><td>Other</td><td>water clogging at car parking. please fix it</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>627d</span></td><td>15-Oct-24</td></tr>
+<tr><td>7671</td><td>B-1703</td><td>Seepage</td><td>Seepage issue in my flat B-1703. Request you to please fix this.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>603d</span></td><td>08-Nov-24</td></tr>
+<tr><td>7809</td><td>B-1608</td><td>Plumbing</td><td>Faucet and shower head leakage</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>578d</span></td><td>03-Dec-24</td></tr>
+<tr><td>8224</td><td>B-1705</td><td>Plumbing</td><td>The MBR bathroom ceiling is leaking and water is dripping. Damagi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>487d</span></td><td>04-Mar-25</td></tr>
+<tr><td>8636</td><td>B-1004</td><td>Seepage</td><td>Opening request id 8442. Refer to the comments. Don't mark it as </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>412d</span></td><td>18-May-25</td></tr>
+<tr><td>8739</td><td>B-1004</td><td>Plumbing</td><td>Seepage issue in utility area </td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>392d</span></td><td>07-Jun-25</td></tr>
+<tr><td>8860</td><td>A-1503</td><td>Plumbing</td><td>Water leaking in bathroom and low water pressure in tap.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>375d</span></td><td>24-Jun-25</td></tr>
+<tr><td>8856</td><td>B-1004</td><td>Plumbing</td><td>Kitchen sink pipe issue. All the soap foams come out whenever the</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>375d</span></td><td>24-Jun-25</td></tr>
+<tr><td>8898</td><td>B-1009</td><td>Plumbing</td><td>Leakage extending in kitchen from upper apartment</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-critical'>370d</span></td><td>29-Jun-25</td></tr>
+<tr><td>8975</td><td>A-509</td><td>Seepage</td><td>Hi Thimesh, The seepage issue from the master bedroom toilet has </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>355d</span></td><td>14-Jul-25</td></tr>
+<tr><td>9001</td><td>A-1903</td><td>Seepage</td><td>There is a mosture patch on the ceiling of the master bed room. </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>349d</span></td><td>20-Jul-25</td></tr>
+<tr><td>9107</td><td>B-601</td><td>Plumbing</td><td>Hi the Drain above my flat is leaking . This needs to be addresse</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>327d</span></td><td>11-Aug-25</td></tr>
+<tr><td>9120</td><td>B-1403</td><td>Seepage</td><td>Seepage has started again, should be an issue with B1503, request</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>324d</span></td><td>14-Aug-25</td></tr>
+<tr><td>9128</td><td>B-1705</td><td>Plumbing</td><td>Seepage in ceiling of 2nd bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>323d</span></td><td>15-Aug-25</td></tr>
+<tr><td>9175</td><td>B-804</td><td>Seepage</td><td>Seepage in bedroom ceiling </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>316d</span></td><td>22-Aug-25</td></tr>
+<tr><td>9206</td><td>A-1906</td><td>Seepage</td><td>Hi Team, On 23rd we have flagged seepage issues to Thimmesh, vide</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>311d</span></td><td>27-Aug-25</td></tr>
+<tr><td>9239</td><td>A-1903</td><td>Seepage</td><td>There some water droplets on the ceiling of the common bed room o</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>304d</span></td><td>03-Sep-25</td></tr>
+<tr><td>9240</td><td>A-901</td><td>Seepage</td><td>Seepage started developing from the water dripping from outside t</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>303d</span></td><td>04-Sep-25</td></tr>
+<tr><td>9303</td><td>A-509</td><td>Plumbing</td><td>Leakage from flush tank in master bed room toilet</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>289d</span></td><td>18-Sep-25</td></tr>
+<tr><td>9332</td><td>A-103</td><td>Seepage</td><td>In common bathroom seepage issue found from the top(pipe connecti</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>283d</span></td><td>24-Sep-25</td></tr>
+<tr><td>9390</td><td>A-1106</td><td>Seepage</td><td>There is seepage from last 2 months in my balcony this was inform</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>271d</span></td><td>06-Oct-25</td></tr>
+<tr><td>9465</td><td>B-1908</td><td>Seepage</td><td>Water drops falling directly on my car parked at B072(B1908). Thi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>255d</span></td><td>22-Oct-25</td></tr>
+<tr><td>9541</td><td>A-1901</td><td>Seepage</td><td>There are some moisture spots appearing in the ceiling. They appe</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>238d</span></td><td>08-Nov-25</td></tr>
+<tr><td>9660</td><td>B-504</td><td>Seepage</td><td>The seepage is seen in guest bedroom. It is seen since a few mont</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>215d</span></td><td>01-Dec-25</td></tr>
+<tr><td>9675</td><td>A-809</td><td>Plumbing</td><td>Seepage in Bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>212d</span></td><td>04-Dec-25</td></tr>
+<tr><td>10241</td><td>A-1211</td><td>Plumbing</td><td>Bathroom drainage jam. Recurring issue. Please fix the root cause</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>88d</span></td><td>07-Apr-26</td></tr>
 <tr><td>10301</td><td>B-203</td><td>Other</td><td>
-Please note previous ticket was closed without action. I am writ</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>73d</span></td><td>17-Apr-26</td></tr>
-<tr><td>10494</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility of b1602</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>36d</span></td><td>24-May-26</td></tr>
-<tr><td>10498</td><td>B-408</td><td>Seepage</td><td>Dear Thimmesh ji, the ground floor parking area b408 is again hav</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>35d</span></td><td>25-May-26</td></tr>
-<tr><td>10499</td><td>A-1108</td><td>Other</td><td>There’s a long big break on our (L- shaped) balcony floor . Pls c</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>35d</span></td><td>25-May-26</td></tr>
-<tr><td>10546</td><td>B-1002</td><td>Seepage</td><td>Hi, my house is facing some serious dampness issue at utility are</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>28d</span></td><td>01-Jun-26</td></tr>
-<tr><td>10567</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>25d</span></td><td>04-Jun-26</td></tr>
-<tr><td>10585</td><td>A-1201</td><td>Seepage</td><td>A1201- living room wall seepage.</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-med'>21d</span></td><td>08-Jun-26</td></tr>
+Please note previous ticket was closed without action. I am writ</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>78d</span></td><td>17-Apr-26</td></tr>
+<tr><td>10494</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility of b1602</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>41d</span></td><td>24-May-26</td></tr>
+<tr><td>10499</td><td>A-1108</td><td>Other</td><td>There’s a long big break on our (L- shaped) balcony floor . Pls c</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>40d</span></td><td>25-May-26</td></tr>
+<tr><td>10546</td><td>B-1002</td><td>Seepage</td><td>Hi, my house is facing some serious dampness issue at utility are</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>33d</span></td><td>01-Jun-26</td></tr>
+<tr><td>10567</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>30d</span></td><td>04-Jun-26</td></tr>
+<tr><td>10585</td><td>A-1201</td><td>Seepage</td><td>A1201- living room wall seepage.</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-med'>26d</span></td><td>08-Jun-26</td></tr>
 <tr><td>10589</td><td>B-606</td><td>Seepage</td><td>Hello team,
-We have observed seepage issue in my flat since yeste</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>20d</span></td><td>09-Jun-26</td></tr>
-<tr><td>10594</td><td>A-810</td><td>Plumbing</td><td>The issue is still not resolved. Still my previous ticket has bee</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>19d</span></td><td>10-Jun-26</td></tr>
-<tr><td>10597</td><td>B-1503</td><td>Seepage</td><td>Some seepage is visible even after repainting. Please have a look</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>19d</span></td><td>10-Jun-26</td></tr>
-<tr><td>10612</td><td>B-408</td><td>Seepage</td><td>Dear Thimmesh ji, the ground floor parking area b408 is again hav</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>17d</span></td><td>12-Jun-26</td></tr>
-<tr><td>10619</td><td>B-505</td><td>Plumbing</td><td>Need to fix leaking tap and shower</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-med'>16d</span></td><td>13-Jun-26</td></tr>
-<tr><td>10634</td><td>A-1910</td><td>Seepage</td><td>Seepage issue even without rain</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>12d</span></td><td>17-Jun-26</td></tr>
-<tr><td>10640</td><td>B-1603</td><td>Plumbing</td><td>Water leakage </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>11d</span></td><td>18-Jun-26</td></tr>
-<tr><td>10644</td><td>B-1709</td><td>Seepage</td><td>seepage from B1808 </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>10d</span></td><td>19-Jun-26</td></tr>
+We have observed seepage issue in my flat since yeste</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>25d</span></td><td>09-Jun-26</td></tr>
+<tr><td>10597</td><td>B-1503</td><td>Seepage</td><td>Some seepage is visible even after repainting. Please have a look</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>24d</span></td><td>10-Jun-26</td></tr>
+<tr><td>10594</td><td>A-810</td><td>Plumbing</td><td>The issue is still not resolved. Still my previous ticket has bee</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>24d</span></td><td>10-Jun-26</td></tr>
+<tr><td>10640</td><td>B-1603</td><td>Plumbing</td><td>Water leakage </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>16d</span></td><td>18-Jun-26</td></tr>
+<tr><td>10644</td><td>B-1709</td><td>Seepage</td><td>seepage from B1808 </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>15d</span></td><td>19-Jun-26</td></tr>
+<tr><td>10651</td><td>B-1504</td><td>Plumbing</td><td>Water drip in guest bathroom.</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>13d</span></td><td>21-Jun-26</td></tr>
+<tr><td>10661</td><td>A-803</td><td>Plumbing</td><td>Leakage in living room </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>11d</span></td><td>23-Jun-26</td></tr>
+<tr><td>10667</td><td>A-810</td><td>Electrical</td><td>Door bell is not working again. It has been 3rd time I am raising</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-med'>10d</span></td><td>24-Jun-26</td></tr>
+<tr><td>10674</td><td>A-1209</td><td>Plumbing</td><td>Toilet seat is broken</td><td><span class="badge-pill pill-hold">On Hold</span></td><td class='r'><span class='age-pill age-med'>9d</span></td><td>25-Jun-26</td></tr>
+<tr><td>10673</td><td>B-1107</td><td>Plumbing</td><td>Bad smell across the hall, kitchen and balcony every day around e</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>9d</span></td><td>25-Jun-26</td></tr>
 </tbody>
       </table></div></div>
     </details>
     <details>
-      <summary>&#128164; Inactive &#8212; No Update 3+ Days, excl. On Hold (49 of 55)</summary>
+      <summary>&#128164; Inactive &#8212; No Update 3+ Days, excl. On Hold (43 of 56)</summary>
       <div class="drill-body"><div class="tbl-wrap tbl-scroll"><table>
         <thead><tr><th>Ticket #</th><th>Flat</th><th>Category</th><th>Subject</th>
           <th>Status</th><th class="r">Idle</th><th>Last Update</th></tr></thead>
-        <tbody><tr><td>3324</td><td>A-1807</td><td>Seepage</td><td>Please see water seapage in pipeline next to Basement 115 just ne</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>1007d</span></td><td>26-Sep-23</td></tr>
-<tr><td>6508</td><td>B-1503</td><td>Plumbing</td><td>The black cement dirt is not going even after a month. Please add</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>797d</span></td><td>23-Apr-24</td></tr>
-<tr><td>6636</td><td>B-1903</td><td>Seepage</td><td>Seepage happening in MBR WALL and it is spreading.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>763d</span></td><td>27-May-24</td></tr>
-<tr><td>6719</td><td>A-403</td><td>Electrical</td><td>Pavan took the power adapter for door bell and is yet to get back</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>742d</span></td><td>17-Jun-24</td></tr>
-<tr><td>7520</td><td>B-1806</td><td>Other</td><td>water clogging at car parking. please fix it</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>622d</span></td><td>15-Oct-24</td></tr>
-<tr><td>7671</td><td>B-1703</td><td>Seepage</td><td>Seepage issue in my flat B-1703. Request you to please fix this.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>597d</span></td><td>09-Nov-24</td></tr>
-<tr><td>6675</td><td>A-408</td><td>Other</td><td>Private balcony lawn replacement. Earlier ticket closed with reso</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>582d</span></td><td>24-Nov-24</td></tr>
-<tr><td>7809</td><td>B-1608</td><td>Plumbing</td><td>Faucet and shower head leakage</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>528d</span></td><td>17-Jan-25</td></tr>
-<tr><td>7253</td><td>B-1703</td><td>Plumbing</td><td>Water leakage from upper apartment master bathroom</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>523d</span></td><td>22-Jan-25</td></tr>
-<tr><td>8860</td><td>A-1503</td><td>Plumbing</td><td>Water leaking in bathroom and low water pressure in tap.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>369d</span></td><td>25-Jun-25</td></tr>
-<tr><td>8636</td><td>B-1004</td><td>Seepage</td><td>Opening request id 8442. Refer to the comments. Don't mark it as </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>368d</span></td><td>26-Jun-25</td></tr>
-<tr><td>8739</td><td>B-1004</td><td>Plumbing</td><td>Seepage issue in utility area </td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>368d</span></td><td>26-Jun-25</td></tr>
-<tr><td>8856</td><td>B-1004</td><td>Plumbing</td><td>Kitchen sink pipe issue. All the soap foams come out whenever the</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>344d</span></td><td>20-Jul-25</td></tr>
-<tr><td>9001</td><td>A-1903</td><td>Seepage</td><td>There is a mosture patch on the ceiling of the master bed room. </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>343d</span></td><td>21-Jul-25</td></tr>
-<tr><td>8975</td><td>A-509</td><td>Seepage</td><td>Hi Thimesh, The seepage issue from the master bedroom toilet has </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>327d</span></td><td>06-Aug-25</td></tr>
-<tr><td>9107</td><td>B-601</td><td>Plumbing</td><td>Hi the Drain above my flat is leaking . This needs to be addresse</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>322d</span></td><td>11-Aug-25</td></tr>
-<tr><td>9128</td><td>B-1705</td><td>Plumbing</td><td>Seepage in ceiling of 2nd bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>318d</span></td><td>15-Aug-25</td></tr>
-<tr><td>8224</td><td>B-1705</td><td>Plumbing</td><td>The MBR bathroom ceiling is leaking and water is dripping. Damagi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>308d</span></td><td>25-Aug-25</td></tr>
-<tr><td>9175</td><td>B-804</td><td>Seepage</td><td>Seepage in bedroom ceiling </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>308d</span></td><td>25-Aug-25</td></tr>
-<tr><td>9120</td><td>B-1403</td><td>Seepage</td><td>Seepage has started again, should be an issue with B1503, request</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>301d</span></td><td>01-Sep-25</td></tr>
-<tr><td>9239</td><td>A-1903</td><td>Seepage</td><td>There some water droplets on the ceiling of the common bed room o</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>298d</span></td><td>04-Sep-25</td></tr>
-<tr><td>9240</td><td>A-901</td><td>Seepage</td><td>Seepage started developing from the water dripping from outside t</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>276d</span></td><td>26-Sep-25</td></tr>
-<tr><td>9390</td><td>A-1106</td><td>Seepage</td><td>There is seepage from last 2 months in my balcony this was inform</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>249d</span></td><td>23-Oct-25</td></tr>
-<tr><td>9465</td><td>B-1908</td><td>Seepage</td><td>Water drops falling directly on my car parked at B072(B1908). Thi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>249d</span></td><td>23-Oct-25</td></tr>
-<tr><td>9541</td><td>A-1901</td><td>Seepage</td><td>There are some moisture spots appearing in the ceiling. They appe</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>233d</span></td><td>08-Nov-25</td></tr>
-<tr><td>9675</td><td>A-809</td><td>Plumbing</td><td>Seepage in Bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>195d</span></td><td>16-Dec-25</td></tr>
-<tr><td>9332</td><td>A-103</td><td>Seepage</td><td>In common bathroom seepage issue found from the top(pipe connecti</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>169d</span></td><td>11-Jan-26</td></tr>
-<tr><td>9206</td><td>A-1906</td><td>Seepage</td><td>Hi Team, On 23rd we have flagged seepage issues to Thimmesh, vide</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>149d</span></td><td>31-Jan-26</td></tr>
-<tr><td>10241</td><td>A-1211</td><td>Plumbing</td><td>Bathroom drainage jam. Recurring issue. Please fix the root cause</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>47d</span></td><td>13-May-26</td></tr>
-<tr><td>10494</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility of b1602</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>34d</span></td><td>26-May-26</td></tr>
-<tr><td>9660</td><td>B-504</td><td>Seepage</td><td>The seepage is seen in guest bedroom. It is seen since a few mont</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>33d</span></td><td>27-May-26</td></tr>
-<tr><td>10499</td><td>A-1108</td><td>Other</td><td>There’s a long big break on our (L- shaped) balcony floor . Pls c</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>24d</span></td><td>05-Jun-26</td></tr>
-<tr><td>10567</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>20d</span></td><td>09-Jun-26</td></tr>
-<tr><td>10597</td><td>B-1503</td><td>Seepage</td><td>Some seepage is visible even after repainting. Please have a look</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>19d</span></td><td>10-Jun-26</td></tr>
-<tr><td>10546</td><td>B-1002</td><td>Seepage</td><td>Hi, my house is facing some serious dampness issue at utility are</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>16d</span></td><td>13-Jun-26</td></tr>
-<tr><td>10589</td><td>B-606</td><td>Seepage</td><td>Hello team,
-We have observed seepage issue in my flat since yeste</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>13d</span></td><td>16-Jun-26</td></tr>
-<tr><td>9303</td><td>A-509</td><td>Plumbing</td><td>Leakage from flush tank in master bed room toilet</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>11d</span></td><td>18-Jun-26</td></tr>
-<tr><td>10640</td><td>B-1603</td><td>Plumbing</td><td>Water leakage </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>10d</span></td><td>19-Jun-26</td></tr>
-<tr><td>10644</td><td>B-1709</td><td>Seepage</td><td>seepage from B1808 </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>10d</span></td><td>19-Jun-26</td></tr>
-<tr><td>10655</td><td>B-503</td><td>Plumbing</td><td>The washroom wash basin is clogged </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>7d</span></td><td>22-Jun-26</td></tr>
-<tr><td>10594</td><td>A-810</td><td>Plumbing</td><td>The issue is still not resolved. Still my previous ticket has bee</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-low'>6d</span></td><td>23-Jun-26</td></tr>
-<tr><td>10634</td><td>A-1910</td><td>Seepage</td><td>Seepage issue even without rain</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>6d</span></td><td>23-Jun-26</td></tr>
-<tr><td>10651</td><td>B-1504</td><td>Plumbing</td><td>Water drip in guest bathroom.</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-low'>6d</span></td><td>23-Jun-26</td></tr>
-<tr><td>10661</td><td>A-803</td><td>Plumbing</td><td>Leakage in living room </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>6d</span></td><td>23-Jun-26</td></tr>
-<tr><td>10673</td><td>B-1107</td><td>Plumbing</td><td>Bad smell across the hall, kitchen and balcony every day around e</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>4d</span></td><td>25-Jun-26</td></tr>
-<tr><td>10674</td><td>A-1209</td><td>Plumbing</td><td>Toilet seat is broken</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>4d</span></td><td>25-Jun-26</td></tr>
+        <tbody><tr><td>3324</td><td>A-1807</td><td>Seepage</td><td>Please see water seapage in pipeline next to Basement 115 just ne</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>1012d</span></td><td>26-Sep-23</td></tr>
+<tr><td>6508</td><td>B-1503</td><td>Plumbing</td><td>The black cement dirt is not going even after a month. Please add</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>802d</span></td><td>23-Apr-24</td></tr>
+<tr><td>6636</td><td>B-1903</td><td>Seepage</td><td>Seepage happening in MBR WALL and it is spreading.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>768d</span></td><td>27-May-24</td></tr>
+<tr><td>6719</td><td>A-403</td><td>Electrical</td><td>Pavan took the power adapter for door bell and is yet to get back</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>747d</span></td><td>17-Jun-24</td></tr>
+<tr><td>7520</td><td>B-1806</td><td>Other</td><td>water clogging at car parking. please fix it</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>627d</span></td><td>15-Oct-24</td></tr>
+<tr><td>7671</td><td>B-1703</td><td>Seepage</td><td>Seepage issue in my flat B-1703. Request you to please fix this.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>602d</span></td><td>09-Nov-24</td></tr>
+<tr><td>6675</td><td>A-408</td><td>Other</td><td>Private balcony lawn replacement. Earlier ticket closed with reso</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>587d</span></td><td>24-Nov-24</td></tr>
+<tr><td>7809</td><td>B-1608</td><td>Plumbing</td><td>Faucet and shower head leakage</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>533d</span></td><td>17-Jan-25</td></tr>
+<tr><td>7253</td><td>B-1703</td><td>Plumbing</td><td>Water leakage from upper apartment master bathroom</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>528d</span></td><td>22-Jan-25</td></tr>
+<tr><td>8860</td><td>A-1503</td><td>Plumbing</td><td>Water leaking in bathroom and low water pressure in tap.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>374d</span></td><td>25-Jun-25</td></tr>
+<tr><td>8739</td><td>B-1004</td><td>Plumbing</td><td>Seepage issue in utility area </td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>373d</span></td><td>26-Jun-25</td></tr>
+<tr><td>8636</td><td>B-1004</td><td>Seepage</td><td>Opening request id 8442. Refer to the comments. Don't mark it as </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>373d</span></td><td>26-Jun-25</td></tr>
+<tr><td>8856</td><td>B-1004</td><td>Plumbing</td><td>Kitchen sink pipe issue. All the soap foams come out whenever the</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>349d</span></td><td>20-Jul-25</td></tr>
+<tr><td>9001</td><td>A-1903</td><td>Seepage</td><td>There is a mosture patch on the ceiling of the master bed room. </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>348d</span></td><td>21-Jul-25</td></tr>
+<tr><td>8975</td><td>A-509</td><td>Seepage</td><td>Hi Thimesh, The seepage issue from the master bedroom toilet has </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>332d</span></td><td>06-Aug-25</td></tr>
+<tr><td>9107</td><td>B-601</td><td>Plumbing</td><td>Hi the Drain above my flat is leaking . This needs to be addresse</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>327d</span></td><td>11-Aug-25</td></tr>
+<tr><td>9128</td><td>B-1705</td><td>Plumbing</td><td>Seepage in ceiling of 2nd bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>323d</span></td><td>15-Aug-25</td></tr>
+<tr><td>9175</td><td>B-804</td><td>Seepage</td><td>Seepage in bedroom ceiling </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>313d</span></td><td>25-Aug-25</td></tr>
+<tr><td>8224</td><td>B-1705</td><td>Plumbing</td><td>The MBR bathroom ceiling is leaking and water is dripping. Damagi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>313d</span></td><td>25-Aug-25</td></tr>
+<tr><td>9120</td><td>B-1403</td><td>Seepage</td><td>Seepage has started again, should be an issue with B1503, request</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>306d</span></td><td>01-Sep-25</td></tr>
+<tr><td>9239</td><td>A-1903</td><td>Seepage</td><td>There some water droplets on the ceiling of the common bed room o</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>303d</span></td><td>04-Sep-25</td></tr>
+<tr><td>9240</td><td>A-901</td><td>Seepage</td><td>Seepage started developing from the water dripping from outside t</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>281d</span></td><td>26-Sep-25</td></tr>
+<tr><td>9465</td><td>B-1908</td><td>Seepage</td><td>Water drops falling directly on my car parked at B072(B1908). Thi</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>254d</span></td><td>23-Oct-25</td></tr>
+<tr><td>9390</td><td>A-1106</td><td>Seepage</td><td>There is seepage from last 2 months in my balcony this was inform</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>254d</span></td><td>23-Oct-25</td></tr>
+<tr><td>9541</td><td>A-1901</td><td>Seepage</td><td>There are some moisture spots appearing in the ceiling. They appe</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>238d</span></td><td>08-Nov-25</td></tr>
+<tr><td>9675</td><td>A-809</td><td>Plumbing</td><td>Seepage in Bedroom </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-critical'>200d</span></td><td>16-Dec-25</td></tr>
+<tr><td>9206</td><td>A-1906</td><td>Seepage</td><td>Hi Team, On 23rd we have flagged seepage issues to Thimmesh, vide</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-critical'>154d</span></td><td>31-Jan-26</td></tr>
+<tr><td>10494</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility of b1602</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>39d</span></td><td>26-May-26</td></tr>
+<tr><td>9660</td><td>B-504</td><td>Seepage</td><td>The seepage is seen in guest bedroom. It is seen since a few mont</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-high'>38d</span></td><td>27-May-26</td></tr>
+<tr><td>10499</td><td>A-1108</td><td>Other</td><td>There’s a long big break on our (L- shaped) balcony floor . Pls c</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>29d</span></td><td>05-Jun-26</td></tr>
+<tr><td>10567</td><td>B-1601</td><td>Seepage</td><td>Seepage in utility </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>25d</span></td><td>09-Jun-26</td></tr>
+<tr><td>10597</td><td>B-1503</td><td>Seepage</td><td>Some seepage is visible even after repainting. Please have a look</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>24d</span></td><td>10-Jun-26</td></tr>
+<tr><td>10546</td><td>B-1002</td><td>Seepage</td><td>Hi, my house is facing some serious dampness issue at utility are</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>21d</span></td><td>13-Jun-26</td></tr>
+<tr><td>9303</td><td>A-509</td><td>Plumbing</td><td>Leakage from flush tank in master bed room toilet</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>16d</span></td><td>18-Jun-26</td></tr>
+<tr><td>10644</td><td>B-1709</td><td>Seepage</td><td>seepage from B1808 </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>15d</span></td><td>19-Jun-26</td></tr>
+<tr><td>10640</td><td>B-1603</td><td>Plumbing</td><td>Water leakage </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>15d</span></td><td>19-Jun-26</td></tr>
+<tr><td>10661</td><td>A-803</td><td>Plumbing</td><td>Leakage in living room </td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-med'>11d</span></td><td>23-Jun-26</td></tr>
+<tr><td>10594</td><td>A-810</td><td>Plumbing</td><td>The issue is still not resolved. Still my previous ticket has bee</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-med'>11d</span></td><td>23-Jun-26</td></tr>
 <tr><td>10301</td><td>B-203</td><td>Other</td><td>
-Please note previous ticket was closed without action. I am writ</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>3d</span></td><td>26-Jun-26</td></tr>
-<tr><td>10498</td><td>B-408</td><td>Seepage</td><td>Dear Thimmesh ji, the ground floor parking area b408 is again hav</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>3d</span></td><td>26-Jun-26</td></tr>
-<tr><td>10679</td><td>A-1704</td><td>Ground Floor Common area</td><td>Safety chain in kids swing is broken.</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>3d</span></td><td>26-Jun-26</td></tr>
+Please note previous ticket was closed without action. I am writ</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>8d</span></td><td>26-Jun-26</td></tr>
+<tr><td>9332</td><td>A-103</td><td>Seepage</td><td>In common bathroom seepage issue found from the top(pipe connecti</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>5d</span></td><td>29-Jun-26</td></tr>
+<tr><td>10673</td><td>B-1107</td><td>Plumbing</td><td>Bad smell across the hall, kitchen and balcony every day around e</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>5d</span></td><td>29-Jun-26</td></tr>
+<tr><td>10693</td><td>A-905</td><td>Plumbing</td><td>Water leakage</td><td><span class="badge-pill pill-prog">In Progress</span></td><td class='r'><span class='age-pill age-low'>3d</span></td><td>01-Jul-26</td></tr>
+<tr><td>10651</td><td>B-1504</td><td>Plumbing</td><td>Water drip in guest bathroom.</td><td><span class="badge-pill pill-reopen">Reopened</span></td><td class='r'><span class='age-pill age-low'>3d</span></td><td>01-Jul-26</td></tr>
 </tbody>
       </table></div></div>
     </details>
@@ -251,11 +250,11 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
       <div class="drill-body"><div class="tbl-wrap"><table>
         <thead><tr><th>Ticket #</th><th>Flat</th><th>Category</th><th>Subject</th>
           <th class="r">Age</th></tr></thead>
-        <tbody><tr><td>8898</td><td>B-1009</td><td>Plumbing</td><td>Leakage extending in kitchen from upper apartment</td><td class='r'><span class='age-pill age-critical'>365d</span></td></tr>
-<tr><td>10585</td><td>A-1201</td><td>Seepage</td><td>A1201- living room wall seepage.</td><td class='r'><span class='age-pill age-med'>21d</span></td></tr>
-<tr><td>10619</td><td>B-505</td><td>Plumbing</td><td>Need to fix leaking tap and shower</td><td class='r'><span class='age-pill age-med'>16d</span></td></tr>
-<tr><td>10667</td><td>A-810</td><td>Electrical</td><td>Door bell is not working again. It has been 3rd time I am raising</td><td class='r'><span class='age-pill age-low'>5d</span></td></tr>
-<tr><td>10682</td><td>B-1309</td><td>Plumbing</td><td>Water leakage in kitchen faucet, please send Prashant to check</td><td class='r'><span class='age-pill age-low'>2d</span></td></tr>
+        <tbody><tr><td>8898</td><td>B-1009</td><td>Plumbing</td><td>Leakage extending in kitchen from upper apartment</td><td class='r'><span class='age-pill age-critical'>370d</span></td></tr>
+<tr><td>10704</td><td>B-408</td><td>Plumbing</td><td>Kitchen tap is leaking.  Please visit after 3 PM</td><td class='r'><span class='age-pill age-low'>1d</span></td></tr>
+<tr><td>10674</td><td>A-1209</td><td>Plumbing</td><td>Toilet seat is broken</td><td class='r'><span class='age-pill age-med'>9d</span></td></tr>
+<tr><td>10667</td><td>A-810</td><td>Electrical</td><td>Door bell is not working again. It has been 3rd time I am raising</td><td class='r'><span class='age-pill age-med'>10d</span></td></tr>
+<tr><td>10585</td><td>A-1201</td><td>Seepage</td><td>A1201- living room wall seepage.</td><td class='r'><span class='age-pill age-med'>26d</span></td></tr>
 </tbody>
       </table></div></div>
     </details>
@@ -264,82 +263,71 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
 
 <!-- ═══════════════════ SECTION 2: FINANCIALS ═══════════════════ -->
 <div class="section">
-  <div class="sec-hdr">&#128176; Financial Summary &#8212; June 2026
-    <span class="sec-tag">Bank Statement &nbsp;·&nbsp; Current Month Only</span></div>
+  <div class="sec-hdr">&#128176; Financial Summary &#8212; FY 2026-27
+    <span class="sec-tag">Income &amp; Expense &nbsp;·&nbsp; All Months YTD</span></div>
   <div class="sec-body">
-    <div class="kpi-row kpi-row-3">
-      <div class="kpi green"><div class="kpi-val">&#8377;17,23,589</div>
-        <div class="kpi-lbl">Total Income (CR)</div></div>
-      <div class="kpi red"><div class="kpi-val">&#8377;19,59,576</div>
-        <div class="kpi-lbl">Total Expenses (DR)</div></div>
-      <div class="kpi red"><div class="kpi-val">&#8377;(2,35,987)</div>
-        <div class="kpi-lbl">Month Surplus / (Deficit)</div></div>
+    <div class="kpi-row kpi-row-4">
+      <div class="kpi green"><div class="kpi-val">&#8377;36,65,138</div>
+        <div class="kpi-lbl">YTD Total Income (CR)</div></div>
+      <div class="kpi red"><div class="kpi-val">&#8377;38,03,314</div>
+        <div class="kpi-lbl">YTD Total Expenses (DR)</div></div>
+      <div class="kpi red"><div class="kpi-val">&#8377;(1,38,177)</div>
+        <div class="kpi-lbl">YTD Surplus / (Deficit)</div></div>
+      <div class="kpi green"><div class="kpi-val">&#8377;74,219</div>
+        <div class="kpi-lbl">Account Balance (As On 4 Jul 2026)</div></div>
     </div>
-    <div class="two-col">
-      <div>
-        <div class="sub-label">Income (CR)</div>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>Category</th><th class="r">&#8377;</th></tr></thead>
-          <tbody>
-            <tr><td>Member Fee</td><td class='r'>15,36,611</td></tr>
-<tr><td>Rental Income</td><td class='r'>86,504</td></tr>
-<tr><td>FD Interest</td><td class='r'>79,524</td></tr>
-<tr><td>Promotional Income</td><td class='r'>18,650</td></tr>
-<tr><td>Coaching Revenue</td><td class='r'>1,426</td></tr>
-<tr><td>Miscllaneous</td><td class='r'>873</td></tr>
-<tr><td>Vendor Electricity</td><td class='r'>—</td></tr>
-
-            <tr class="total-row"><td>Total CR</td><td class="r">17,23,589</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-      <div>
-        <div class="sub-label">Expenses (DR)</div>
-        <div class="tbl-wrap"><table>
-          <thead><tr><th>Category</th><th class="r">&#8377;</th></tr></thead>
-          <tbody>
-            <tr><td>Facilities Maintenance</td><td class='r'>5,91,553</td></tr>
-<tr><td>Security Management</td><td class='r'>4,27,442</td></tr>
-<tr><td>Water Bill</td><td class='r'>4,35,540</td></tr>
-<tr><td>Electricity Bill</td><td class='r'>2,07,373</td></tr>
-<tr><td>Water Management</td><td class='r'>1,00,100</td></tr>
-<tr><td>Other Repairs</td><td class='r'>71,060</td></tr>
-<tr><td>Diesel</td><td class='r'>36,396</td></tr>
-<tr><td>Landscaping</td><td class='r'>34,534</td></tr>
-<tr><td>Pest Control</td><td class='r'>14,986</td></tr>
-<tr><td>Accountant Fee</td><td class='r'>13,455</td></tr>
-<tr><td>TDS Payment</td><td class='r'>11,711</td></tr>
-<tr><td>GST Payment</td><td class='r'>9,009</td></tr>
-<tr><td>Miscllaneous</td><td class='r'>3,886</td></tr>
-<tr><td>Event Related Expense</td><td class='r'>2,400</td></tr>
-<tr><td>Bank Charges</td><td class='r'>131</td></tr>
-
-            <tr class="total-row"><td>Total DR</td><td class="r">19,59,576</td></tr>
-          </tbody>
-        </table></div>
-      </div>
-    </div>
+    <div class='tbl-wrap'><table><thead><tr><th>Category</th><th class='r'>May</th><th class='r'>June</th><th class='r'>July</th><th class='r'>YTD Total</th></tr></thead><tbody><tr class='sec-marker'><td colspan='5'>&uarr;&nbsp; INCOME (CR)</td></tr>
+<tr><td>Member Fee</td><td class='r'>16,27,531</td><td class='r'>16,23,556</td><td class='r'>49,474</td><td class='r'>33,00,561</td></tr>
+<tr><td>Rental Income</td><td class='r'>38,790</td><td class='r'>96,429</td><td class='r'>—</td><td class='r'>1,35,219</td></tr>
+<tr><td>FD Interest</td><td class='r'>76,020</td><td class='r'>79,771</td><td class='r'>12,864</td><td class='r'>1,68,655</td></tr>
+<tr><td>Promotional Income</td><td class='r'>20,870</td><td class='r'>19,850</td><td class='r'>—</td><td class='r'>40,720</td></tr>
+<tr><td>Coaching Revenue</td><td class='r'>2,982</td><td class='r'>1,426</td><td class='r'>—</td><td class='r'>4,408</td></tr>
+<tr><td>Miscllaneous</td><td class='r'>1,080</td><td class='r'>886</td><td class='r'>176</td><td class='r'>2,142</td></tr>
+<tr><td>Vendor Electricity</td><td class='r'>13,432</td><td class='r'>—</td><td class='r'>—</td><td class='r'>13,432</td></tr>
+<tr class='total-row'><td>Total CR</td><td class='r'>17,80,705</td><td class='r'>18,21,919</td><td class='r'>62,514</td><td class='r'>36,65,138</td></tr>
+<tr class='sec-marker'><td colspan='5'>&darr;&nbsp; EXPENSES (DR)</td></tr>
+<tr><td>Facilities Maintenance</td><td class='r'>4,49,053</td><td class='r'>6,91,553</td><td class='r'>—</td><td class='r'>11,40,606</td></tr>
+<tr><td>Security Management</td><td class='r'>2,72,682</td><td class='r'>4,27,442</td><td class='r'>—</td><td class='r'>7,00,124</td></tr>
+<tr><td>Water Bill</td><td class='r'>4,03,820</td><td class='r'>4,35,540</td><td class='r'>—</td><td class='r'>8,39,360</td></tr>
+<tr><td>Electricity Bill</td><td class='r'>2,86,947</td><td class='r'>2,07,373</td><td class='r'>—</td><td class='r'>4,94,320</td></tr>
+<tr><td>Water Management</td><td class='r'>93,600</td><td class='r'>1,00,100</td><td class='r'>—</td><td class='r'>1,93,700</td></tr>
+<tr><td>Other Repairs</td><td class='r'>1,27,300</td><td class='r'>71,060</td><td class='r'>—</td><td class='r'>1,98,360</td></tr>
+<tr><td>Diesel</td><td class='r'>—</td><td class='r'>36,396</td><td class='r'>—</td><td class='r'>36,396</td></tr>
+<tr><td>Landscaping</td><td class='r'>51,489</td><td class='r'>34,534</td><td class='r'>—</td><td class='r'>86,023</td></tr>
+<tr><td>Pest Control</td><td class='r'>—</td><td class='r'>14,986</td><td class='r'>—</td><td class='r'>14,986</td></tr>
+<tr><td>Accountant Fee</td><td class='r'>13,455</td><td class='r'>13,455</td><td class='r'>—</td><td class='r'>26,910</td></tr>
+<tr><td>TDS Payment</td><td class='r'>24,800</td><td class='r'>11,711</td><td class='r'>—</td><td class='r'>36,511</td></tr>
+<tr><td>GST Payment</td><td class='r'>10,534</td><td class='r'>9,009</td><td class='r'>—</td><td class='r'>19,543</td></tr>
+<tr><td>Miscllaneous</td><td class='r'>9,796</td><td class='r'>3,886</td><td class='r'>—</td><td class='r'>13,682</td></tr>
+<tr><td>Event Related Expense</td><td class='r'>—</td><td class='r'>2,400</td><td class='r'>—</td><td class='r'>2,400</td></tr>
+<tr><td>Bank Charges</td><td class='r'>229</td><td class='r'>131</td><td class='r'>34</td><td class='r'>394</td></tr>
+<tr class='total-row'><td>Total DR</td><td class='r'>17,43,705</td><td class='r'>20,59,576</td><td class='r'>34</td><td class='r'>38,03,314</td></tr>
+<tr class='total-row'><td>Surplus / (Deficit)</td><td class='r' style='color:var(--green)'>37,000</td><td class='r' style='color:var(--red)'>(2,37,657)</td><td class='r' style='color:var(--green)'>62,480</td><td class='r' style='color:var(--red)'>(1,38,177)</td></tr>
+<tr class='sec-marker'><td colspan='5'>&#127974;&nbsp; BANK BALANCE RECONCILIATION&nbsp;&nbsp;<span style='font-weight:400;font-size:10px;text-transform:none'>Opening + Surplus / (Deficit) = Closing</span></td></tr>
+<tr class='bal-row'><td>Opening Bank Balance</td><td class='r'>&#8377;2,12,396</td><td class='r'>&#8377;2,49,396</td><td class='r'>&#8377;11,739</td><td class='r'>&#8212;</td></tr>
+<tr class='bal-row'><td>Closing Bank Balance</td><td class='r'>&#8377;2,49,396</td><td class='r'>&#8377;11,739</td><td class='r'>&#8377;74,219</td><td class='r'>&#8212;</td></tr>
+</tbody></table></div>
   </div>
 </div>
 
 <!-- ═══════════════════ SECTION 3: PAYMENTS ═══════════════════ -->
 <div class="section">
-  <div class="sec-hdr">&#129534; Payment Status &#8212; June 2026
+  <div class="sec-hdr">&#129534; Payment Status &#8212; July 2026
     <span class="sec-tag">Vendor Bills &amp; Payments</span></div>
   <div class="sec-body">
     <div class="kpi-row kpi-row-4">
       <div class="kpi"><div class="kpi-val">&#8377;18,92,502</div>
         <div class="kpi-lbl">Total Payable</div></div>
-      <div class="kpi green"><div class="kpi-val">&#8377;17,23,660</div>
+      <div class="kpi green"><div class="kpi-val">&#8377;18,23,660</div>
         <div class="kpi-lbl">Total Paid</div></div>
       <div class="kpi amber">
-        <div class="kpi-val">&#8377;1,68,842</div>
+        <div class="kpi-val">&#8377;68,842</div>
         <div class="kpi-lbl">Total Pending</div></div>
       <div class="kpi red"><div class="kpi-val">1</div>
         <div class="kpi-lbl">Vendors with Outstanding</div></div>
     </div>
     <div class="alert red">
-      <strong>Outstanding:</strong> United &#8377;1,68,859 (Facilities Management)
+      <strong>Outstanding:</strong> United &#8377;68,859 (Facilities Management)
     </div>
     <details open>
       <summary>&#128209; Full Vendor Payment Detail</summary>
@@ -348,7 +336,7 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
           <th class="r">Billed (&#8377;)</th><th class="r">Payable after TDS (&#8377;)</th>
           <th class="r">Paid (&#8377;)</th><th class="r">Pending (&#8377;)</th></tr></thead>
         <tbody>
-          <tr class='alert-row'><td>United</td><td>Facilities Management</td><td class='r'>4,76,943</td><td class='r'>4,68,859</td><td class='r'>3,00,000</td><td class='r'>1,68,859</td></tr>
+          <tr class='alert-row'><td>United</td><td>Facilities Management</td><td class='r'>4,76,943</td><td class='r'>4,68,859</td><td class='r'>4,00,000</td><td class='r'>68,859</td></tr>
 <tr><td>United</td><td>Material & Repairs</td><td class='r'>1,61,241</td><td class='r'>1,61,241</td><td class='r'>1,61,241</td><td class='r'>—</td></tr>
 <tr><td>United</td><td>Power Backup</td><td class='r'>1,12,428</td><td class='r'>1,12,428</td><td class='r'>1,12,428</td><td class='r'>—</td></tr>
 <tr><td>MLA & VBF</td><td>Water Tankers</td><td class='r'>4,35,540</td><td class='r'>4,35,540</td><td class='r'>4,35,540</td><td class='r'>—</td></tr>
@@ -368,8 +356,8 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
           <tr class="total-row"><td colspan="2">TOTAL</td>
             <td class="r">19,04,150</td>
             <td class="r">18,92,502</td>
-            <td class="r">17,23,660</td>
-            <td class="r">1,68,842</td>
+            <td class="r">18,23,660</td>
+            <td class="r">68,842</td>
           </tr>
         </tbody>
       </table></div></div>
@@ -383,57 +371,72 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
     <span class="sec-tag">Dues Report Raw &nbsp;·&nbsp; Collection Report Raw</span></div>
   <div class="sec-body">
     <div class="kpi-row kpi-row-4">
-      <div class="kpi amber"><div class="kpi-val">11</div>
+      <div class="kpi amber"><div class="kpi-val">9</div>
         <div class="kpi-lbl">Residential Units with Dues</div></div>
-      <div class="kpi red"><div class="kpi-val">&#8377;1,90,525</div>
+      <div class="kpi red"><div class="kpi-val">&#8377;1,78,083</div>
         <div class="kpi-lbl">Total Residential Dues</div></div>
-      <div class="kpi"><div class="kpi-val">8</div>
+      <div class="kpi"><div class="kpi-val">11</div>
         <div class="kpi-lbl">Commercial Entities with Dues</div></div>
-      <div class="kpi amber"><div class="kpi-val">&#8377;1,10,417</div>
+      <div class="kpi amber"><div class="kpi-val">&#8377;1,80,652</div>
         <div class="kpi-lbl">Total Commercial Dues</div></div>
     </div>
-    <div class="sub-label">Residential Dues (11 Units)</div>
+    <div class="sub-label">Maintenance Billing vs Collection</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th>Month</th>
+        <th class="r">Total Billed (&#8377;)</th>
+        <th class="r">Total Collected (&#8377;)</th>
+        <th class="r">Balance (&#8377;)</th>
+        <th class="r">Collection Rate</th>
+      </tr></thead>
+      <tbody><tr><td><strong>May</strong></td><td class='r'>&#8377;15,52,302</td><td class='r'>&#8377;15,47,856</td><td class='r' style='color:var(--amber)'>4,446</td><td class='r'><span class='badge-pill pill-green'>99.7%</span></td></tr>
+<tr><td><strong>June</strong></td><td class='r'>&#8377;15,52,302</td><td class='r'>&#8377;15,42,279</td><td class='r' style='color:var(--amber)'>10,023</td><td class='r'><span class='badge-pill pill-green'>99.4%</span></td></tr>
+</tbody>
+    </table></div>
+    <hr class="divider">
+    <div class="sub-label">Residential Dues (9 Units)</div>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Unit</th><th>Owner</th><th>Tenant</th>
         <th class="r">Penalty (&#8377;)</th><th class="r">Ledger Dues (&#8377;)</th>
         <th class="r">Total Dues (&#8377;)</th></tr></thead>
-      <tbody><tr><td>A-309</td><td>John Christian McCoy</td><td>—</td><td class='r'>17,200</td><td class='r'>1,47,972</td><td class='r'>1,65,172</td></tr>
+      <tbody><tr><td>A-309</td><td>John Christian McCoy</td><td>—</td><td class='r'>17,500</td><td class='r'>1,47,972</td><td class='r'>1,65,472</td></tr>
 <tr><td>A-401</td><td>Ms Divya</td><td>—</td><td class='r'>—</td><td class='r'>500</td><td class='r'>500</td></tr>
 <tr><td>A-404</td><td>Mr Prakash barman</td><td>Sugandha</td><td class='r'>—</td><td class='r'>100</td><td class='r'>100</td></tr>
 <tr><td>A-811</td><td>Mr Anup Kumar</td><td>—</td><td class='r'>—</td><td class='r'>500</td><td class='r'>500</td></tr>
-<tr><td>A-1708</td><td>Nihal George</td><td>—</td><td class='r'>200</td><td class='r'>5,577</td><td class='r'>5,777</td></tr>
+<tr><td>A-1708</td><td>Nihal George</td><td>—</td><td class='r'>500</td><td class='r'>5,577</td><td class='r'>6,077</td></tr>
 <tr><td>A-1805</td><td>Mr Choudry B K</td><td>—</td><td class='r'>—</td><td class='r'>1,700</td><td class='r'>1,700</td></tr>
-<tr><td>B-1002</td><td>Rahul Damani</td><td>Pratik Kumar Sahu</td><td class='r'>200</td><td class='r'>2,847</td><td class='r'>3,047</td></tr>
 <tr><td>B-1704</td><td>Anshul Maheshwari</td><td>Bobby VC</td><td class='r'>—</td><td class='r'>3,160</td><td class='r'>3,160</td></tr>
-<tr><td>B-1706</td><td>Mr. Roovith</td><td>—</td><td class='r'>200</td><td class='r'>3,647</td><td class='r'>3,847</td></tr>
-<tr><td>B-1907</td><td>Mr Ajay Sahoo</td><td>Ashu</td><td class='r'>1,000</td><td class='r'>5,222</td><td class='r'>6,222</td></tr>
+<tr><td>B-1907</td><td>Mr Ajay Sahoo</td><td>Ashu</td><td class='r'>—</td><td class='r'>74</td><td class='r'>74</td></tr>
 <tr><td>B-1908</td><td>Mr Sanjay Ghosh</td><td>—</td><td class='r'>—</td><td class='r'>500</td><td class='r'>500</td></tr>
-<tr class='total-row'><td colspan='3'>TOTAL</td><td class='r'>18,800</td><td class='r'>1,71,725</td><td class='r'>1,90,525</td></tr>
+<tr class='total-row'><td colspan='3'>TOTAL</td><td class='r'>18,000</td><td class='r'>1,60,083</td><td class='r'>1,78,083</td></tr>
 </tbody>
     </table></div>
     <hr class="divider">
-    <div class="sub-label">Commercial / Non-Member Dues (8 Entities)</div>
+    <div class="sub-label">Commercial / Non-Member Dues (11 Entities)</div>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Entity</th><th class="r">Ledger Dues (&#8377;)</th>
         <th class="r">Total Dues (&#8377;)</th></tr></thead>
       <tbody><tr><td>ACT FIBER NET -ATRIA CONVERGENCE TECHNOLOGY</td><td class='r'>5,558</td><td class='r'>5,558</td></tr>
-<tr><td>ADONMO PRIVATE LIMITED</td><td class='r'>720</td><td class='r'>720</td></tr>
-<tr><td>Beards & Shears -1st floor</td><td class='r'>31,248</td><td class='r'>31,248</td></tr>
-<tr><td>Braids & Strands -2nd Floor</td><td class='r'>26,950</td><td class='r'>26,950</td></tr>
-<tr><td>Cafeteria- Shikha soni</td><td class='r'>9,925</td><td class='r'>9,925</td></tr>
-<tr><td>FEATHERTOUCH LEARNING PRIVATE LIMITED</td><td class='r'>1,066</td><td class='r'>1,066</td></tr>
-<tr><td>PSD Car Wash</td><td class='r'>13,501</td><td class='r'>13,501</td></tr>
-<tr><td>TODOOR GROCERS</td><td class='r'>21,450</td><td class='r'>21,450</td></tr>
-<tr class='total-row'><td>TOTAL</td><td class='r'>1,10,417</td><td class='r'>1,10,417</td></tr>
+<tr><td>ADONMO PRIVATE LIMITED</td><td class='r'>11,340</td><td class='r'>11,340</td></tr>
+<tr><td>Beards & Shears -1st floor</td><td class='r'>37,148</td><td class='r'>37,148</td></tr>
+<tr><td>Braids & Strands -2nd Floor</td><td class='r'>30,490</td><td class='r'>30,490</td></tr>
+<tr><td>Cafe Sup-Sip</td><td class='r'>2,360</td><td class='r'>2,360</td></tr>
+<tr><td>Cafeteria- Shikha soni</td><td class='r'>9,440</td><td class='r'>9,440</td></tr>
+<tr><td>FEATHERTOUCH LEARNING PRIVATE LIMITED</td><td class='r'>18,766</td><td class='r'>18,766</td></tr>
+<tr><td>Laundro Mart</td><td class='r'>5,900</td><td class='r'>5,900</td></tr>
+<tr><td>Om Shakathi Vegetables</td><td class='r'>1,250</td><td class='r'>1,250</td></tr>
+<tr><td>PSD Car Wash</td><td class='r'>18,001</td><td class='r'>18,001</td></tr>
+<tr><td>TODOOR GROCERS</td><td class='r'>40,400</td><td class='r'>40,400</td></tr>
+<tr class='total-row'><td>TOTAL</td><td class='r'>1,80,652</td><td class='r'>1,80,652</td></tr>
 </tbody>
     </table></div>
     <hr class="divider">
     <div class="sub-label">Collection Status</div>
     <div class="kpi-row kpi-row-4">
-      <div class="kpi"><div class="kpi-val">446</div><div class="kpi-lbl">Jun 2026 Receipts</div></div>
-<div class="kpi"><div class="kpi-val">&#8377;16,76,344</div><div class="kpi-lbl">Jun 2026 Total Collections</div></div>
-<div class="kpi"><div class="kpi-val">453</div><div class="kpi-lbl">May 2026 Receipts</div></div>
-<div class="kpi"><div class="kpi-val">&#8377;16,46,254</div><div class="kpi-lbl">May 2026 Total Collections</div></div>
+      <div class="kpi"><div class="kpi-val">5</div><div class="kpi-lbl">Jul 2026 Receipts</div></div>
+<div class="kpi"><div class="kpi-val">&#8377;21,630</div><div class="kpi-lbl">Jul 2026 Total Collections</div></div>
+<div class="kpi"><div class="kpi-val">456</div><div class="kpi-lbl">Jun 2026 Receipts</div></div>
+<div class="kpi"><div class="kpi-val">&#8377;17,15,163</div><div class="kpi-lbl">Jun 2026 Total Collections</div></div>
 
     </div>
   </div>
@@ -477,7 +480,7 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
         <div class="kpi-lbl">Items Approved, Bill Awaited</div></div>
       <div class="kpi amber"><div class="kpi-val">&#8377;1,35,562</div>
         <div class="kpi-lbl">Estimated Liability</div></div>
-      <div class="kpi"><div class="kpi-val">June 2026</div>
+      <div class="kpi"><div class="kpi-val">July 2026</div>
         <div class="kpi-lbl">Expected Billing Month</div></div>
     </div>
     <div class="tbl-wrap"><table>
@@ -501,7 +504,7 @@ Please note previous ticket was closed without action. I am writ</td><td><span c
 
 <div class="footer">
   TGT AOA Management Dashboard &nbsp;·&nbsp; Week 27 &nbsp;·&nbsp; FY 2026-27 &nbsp;·&nbsp;
-  Data as on 29 Jun 2026 &nbsp;·&nbsp; Prepared by Abhay Kapoor, Secretary
+  Data as on 4 Jul 2026 &nbsp;·&nbsp; Prepared by Abhay Kapoor, Secretary
 </div>
 
 </div><!-- /page -->
